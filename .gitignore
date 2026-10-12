@@ -1,1 +1,64 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
 .venv/
+venv/
+env/
+ENV/
+
+# Local environment variables and secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Local database files
+*.db
+*.sqlite
+*.sqlite3
+*.db-*
+*.sqlite-*
+
+# Python packaging and build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+wheels/
+share/python-wheels/
+
+# Test, coverage, and type-checker output
+.pytest_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+nosetests.xml
+pytestdebug.log
+.mypy_cache/
+.pytype/
+.ruff_cache/
+.hypothesis/
+
+# Documentation build output
+docs/_build/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE and editor files
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
