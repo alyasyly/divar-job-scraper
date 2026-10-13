@@ -1,7 +1,7 @@
 from divar import get_soup, extract_job_listings
 import sys
 import requests
-
+from exceptions import NoListingsFoundError
 
 
 
@@ -15,9 +15,12 @@ if __name__ == "__main__":
         print(f"Failed to fetch the URL: {e}")
         sys.exit(1)
 
-    
-    job_listings = extract_job_listings(soup, limit=10)
-    
+    try:
+        job_listings = extract_job_listings(soup, limit=10)
+    except NoListingsFoundError as e:
+        print(e)
+        sys.exit(1)
+        
     if job_listings:
         for job in job_listings:
             print(f"Title: {job['title']}, Link: {job['link']}")

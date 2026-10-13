@@ -4,7 +4,7 @@ from urllib.parse import urljoin
 import requests_cache
 import functools
 import time
-
+from exceptions import NoListingsFoundError
 requests_cache.install_cache('divar_cache', expire_after=1800)  # Cache expires after 30 minutes
 
 HEADERS = {
@@ -42,8 +42,7 @@ def get_soup(url):
 def extract_job_listings(soup,limit=10):
     cards = soup.select('.kt-post-card__action')[:limit]
     if not cards:
-        print("No job listings found.")
-        return []
+        raise NoListingsFoundError("No job listings found on the page. The page structure may have changed or the selector is incorrect.")
     # job_listings = job_listings[:10:1]
     # print(job_listings)
     # print(len(job_listings))
