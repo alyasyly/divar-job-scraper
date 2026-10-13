@@ -41,6 +41,9 @@ def get_soup(url):
 
 def extract_job_listings(soup,limit=10):
     cards = soup.select('.kt-post-card__action')[:limit]
+    if not cards:
+        print("No job listings found.")
+        return []
     # job_listings = job_listings[:10:1]
     # print(job_listings)
     # print(len(job_listings))
